@@ -1,4 +1,4 @@
-# Fase 2 — Limpieza y preparación (estado: explicación lista, pendiente quiz + build)
+# Fase 2 — Limpieza y preparación (estado: completada)
 
 > Rama: `fase-2-limpieza` | Base: EDA Fase 1 sobre `data/raw/reviews.csv` (500 filas)
 
@@ -25,3 +25,15 @@ Piensa en lavar fruta antes de cocinar: quitas polvo y pegatinas, pero no quitas
 **Lo que NO es esta fase:** no se aplica ningún modelo de sentimiento, no se toca `src/app.py`, no se escribe reporte de cliente.
 
 **Salida del build:** celdas nuevas en `src/explore.ipynb` + `data/processed/reviews_clean.csv` + esta ficha actualizada a "completada".
+
+## Quiz Fase 2 (corrección: 3/3)
+
+- P1 "por qué no quitar puntuación/negaciones/stopwords" → Aportan sentimiento ✓
+- P2 "7 duplicados" → Marcar + decidir (`is_duplicate_text`) ✓
+- P3 "dónde guardar" → `data/processed/`, raw intacto ✓
+
+## Build ejecutado (commit `474b781`)
+
+- `review_text_clean`: NFKC + `Café` + comillas + espacios colapsados. 0 nulos, 0 vacíos.
+- `is_duplicate_text`: 7 valores / 14 filas marcadas.
+- `rating` validado 1-5. Guardado `data/processed/reviews_clean.csv` (500 filas).
