@@ -46,3 +46,14 @@ La EDA (Exploración) responde: ¿qué columnas tenemos? ¿hay huecos o repetido
 - P1 "para qué mirar primero" → Evitar sorpresas ✓
 - P2 "qué esperas con media 4.5" → inicialmente "reparto uniforme" ✗ → corrección: mayoría 4-5, sesgo arriba; si no aparece, algo raro.
 - P3 "qué sale de Fase 1" → Insights + propuesta ✓
+
+## Refuerzo de calidad (rama `eda-quality`)
+
+Revisión contra `PROMPT.md`: la EDA cumplía lo esencial, pero se añadieron 4 celdas:
+
+1. **Validez de ratings:** `sorted(unique)` + `between(1,5).all()` → solo 1-5, sin inválidos.
+2. **Gráficos reales:** barras de estrellas + histograma de longitud (PNG embebidos, generados con matplotlib).
+3. **Muestra aleatoria reproducible:** `sample(5, random_state=42)` en tabla, además de 1 reseña por estrella.
+4. **Nota de encoding:** el `�` de `Caf�` es carácter de reemplazo — el CSV ya llegó dañado; Fase 2 lo normaliza a `Café` como regla específica.
+
+`execution_count` renumerados 1..N en orden.
